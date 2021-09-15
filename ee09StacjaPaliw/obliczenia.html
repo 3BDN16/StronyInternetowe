@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stacja Paliw</title>
+    <link rel="stylesheet" href="styl3.css">
+</head>
+
+<body>
+    <header>
+        <h1>Stacja Paliw</h1>
+    </header>
+    <nav>
+        <a href="stacja.html"><img src="home.png"></a>
+        <a href="obliczenia.html"><img src="znak.png"></a>
+    </nav>
+    <main>
+        <h3>Oblicz koszt paliwa</h3>
+        <label for="paliwo">
+            <p>Rodzaj paliwa (1-benzyna, 2-olej napędowy):</p>
+            <input type="number" name="paliwo" id="paliwo">
+        </label>
+        <label for="ilepaliwa">
+            <p>Ile litrów</p>
+            <input type="number" name="ilepaliwa" id="ilepaliwa">
+        </label>
+        <button id="oblicz">OBLICZ</button>
+        <p id=wynik></p>
+    </main>
+    <aside>
+        <a href="kwerendy.txt">Pobierz kwerendy</a>
+    </aside>
+    <section>
+        <img src="samochod.png" alt="samochód">
+    </section>
+    <footer>
+        <p>Stronę przygotował: 00000000000</p>
+    </footer>
+    <script>
+        document.getElementById("oblicz").addEventListener('click', function () {
+            const paliwo = parseInt(document.getElementById('paliwo').value)
+            const paliwaIle = parseInt(document.getElementById('ilepaliwa').value)
+            console.log(paliwo)
+            console.log(paliwaIle)
+            let cena = 1;
+            switch (paliwo) {
+                case 1:
+                    cena = 4 * paliwaIle
+                    console.log(cena)
+                    break;
+                case 2:
+                    cena = 3.5 * paliwaIle
+                    console.log(cena)
+                    break;
+                default:
+                    cena = 0
+            }
+            console.log(cena)
+            const wynik = document.getElementById('wynik')
+            wynik.innerHTML = "koszt paliwa: " + cena + "zł"
+        })
+    </script>
+</body>
+
+</html>
